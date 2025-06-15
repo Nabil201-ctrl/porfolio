@@ -1,0 +1,125 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    background-color: #f8fafc;
+}
+
+body[data-theme="dark"] {
+    background-color: #1f2937;
+}
+
+/* Gradient Background */
+.gradient-bg {
+    background: linear-gradient(135deg, #6b7280, #a855f7);
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+}
+
+/* Card Animations */
+.skill-card, .project-card, .contact-form {
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.skill-card.animate__animated, .project-card.animate__animated, .contact-form.animate__animated {
+    opacity: 1;
+}
+
+.skill-card:hover, .project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Navigation Links */
+.nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #6b7280;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Typewriter Animation */
+.typewriter {
+    overflow: hidden;
+    border-right: .15em solid #6b7280;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .1em;
+    animation: typing 3s steps(40, end), blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #6b7280; }
+}
+
+/* Parallax Image */
+.parallax-img {
+    background-size: cover;
+    background-position: center;
+    transform: translateY(0);
+    transition: transform 0.1s linear;
+}
+
+/* Modal Styles */
+#project-modal {
+    transition: opacity 0.3s ease;
+}
+
+#project-modal .carousel-slide {
+    transition: opacity 0.5s ease;
+}
+
+#project-modal img {
+    max-height: 400px;
+}
+
+.carousel-dot.active {
+    background-color: #6b7280 !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+    .gradient-bg {
+        padding-top: 6rem;
+    }
+
+    .typewriter {
+        font-size: 1.25rem;
+    }
+
+    .project-card .parallax-img {
+        height: 12rem;
+    }
+
+    #project-modal {
+        padding: 1rem;
+    }
+
+    #project-modal img {
+        height: 200px;
+    }
+}
